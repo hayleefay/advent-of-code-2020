@@ -7,6 +7,7 @@ those two numbers together.
 
 Find the two entries that sum to 2020; what do you get if you multiply them together?
 '''
+import doctest
 import pandas as pd
 import sys
 
@@ -26,12 +27,9 @@ def find_nums_that_sum(expenses, num=2020):
 
 
 if __name__ == "__main__":
-    import doctest
     doctest.testmod()
 
     df = pd.read_csv(sys.argv[-1])
-    expenses = df['amount'].values
-
-    e1, e2 = find_nums_that_sum(expenses)
+    e1, e2 = find_nums_that_sum(df['amount'].values)
 
     print(f'Answer: {e1 * e2}')
